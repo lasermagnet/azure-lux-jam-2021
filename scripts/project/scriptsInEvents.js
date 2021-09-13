@@ -27,110 +27,110 @@ CompileErrorReport
 
 const scriptsInEvents = {
 
-		async Eplayfab_Event1_Act1(runtime, localVars)
+		async Fnsplayfab_Event1_Act1(runtime, localVars)
 		{
-			await PlayFab_GetLeaderboard(localVars.paramCount, runtime.globalVars.gPlayFabHighScoreTableName);
+			await PlayFab_GetLeaderboard(localVars.paramCount, localVars.paramLeaderboardName);
 		},
 
-		async Eplayfab_Event2_Act1(runtime, localVars)
+		async Fnsplayfab_Event2_Act1(runtime, localVars)
 		{
 			localVars.localLeaderboardCount = PlayFab_GetLeaderboardCount();
 		},
 
-		async Eplayfab_Event5_Act2(runtime, localVars)
+		async Fnsplayfab_Event5_Act2(runtime, localVars)
 		{
 			localVars.localStatName = PlayFab_GetLeaderboardItem(localVars.localIndex,"name");
 			localVars.localStatScore = PlayFab_GetLeaderboardItem(localVars.localIndex,"score");
 		},
 
-		async Eplayfab_Event7_Act1(runtime, localVars)
+		async Fnsplayfab_Event7_Act2(runtime, localVars)
 		{
-			await PlayFab_UpdatePlayerStatistics(runtime.globalVars.gPlayFabHighScoreTableName,localVars.paramScore);
+			await PlayFab_UpdatePlayerStatistics(localVars.paramLeaderboardName, localVars.paramScore);
 		},
 
-		async Eplayfab_Event8_Act1(runtime, localVars)
+		async Fnsplayfab_Event8_Act1(runtime, localVars)
 		{
 			await PlayFab_GetUserData(localVars.paramUserDataID);
 		},
 
-		async Eplayfab_Event10_Act1(runtime, localVars)
+		async Fnsplayfab_Event10_Act1(runtime, localVars)
 		{
 			await PlayFab_UpdateUserData(localVars.paramUserDataID, localVars.paramDataString);
 		},
 
-		async Eplayfab_Event12_Act1(runtime, localVars)
+		async Fnsplayfab_Event12_Act1(runtime, localVars)
 		{
 			await PlayFab_UpdateDisplayName(localVars.paramDisplayName);
 		},
 
-		async Eplayfab_Event14_Act1(runtime, localVars)
+		async Fnsplayfab_Event14_Act1(runtime, localVars)
 		{
 			localVars.localPlayFabId = PlayFab_GetPlayFabID();
 			
 		},
 
-		async Eplayfab_Event16_Act1(runtime, localVars)
+		async Fnsplayfab_Event16_Act1(runtime, localVars)
 		{
 			localVars.localData = PlayFab_UserData(localVars.paramUserDataID);
 			
 		},
 
-		async Eplayfab_Event18_Act1(runtime, localVars)
+		async Fnsplayfab_Event18_Act1(runtime, localVars)
 		{
 			localVars.localData = PlayFab_GetDisplayName();
 		},
 
-		async Eplayfab_Event19_Act1(runtime, localVars)
+		async Fnsplayfab_Event19_Act1(runtime, localVars)
 		{
 			localVars.localData = PlayFab_GetPlayFabID();
 		},
 
-		async Eplayfab_Event22_Act1(runtime, localVars)
+		async Fnsplayfab_Event22_Act1(runtime, localVars)
 		{
 			await PlayFab_RegisterUser(runtime.globalVars.kPlayFabTitleID, localVars.paramUsername, localVars.paramEmail, localVars.paramPassword, localVars.paramUsername);
 		},
 
-		async Eplayfab_Event24_Act1(runtime, localVars)
+		async Fnsplayfab_Event24_Act1(runtime, localVars)
 		{
 			localVars.localData = PlayFab_Error("RegisterPlayFabUser");
 		},
 
-		async Eplayfab_Event26_Act1(runtime, localVars)
+		async Fnsplayfab_Event26_Act1(runtime, localVars)
 		{
 			localVars.localData = PlayFab_Error("LoginWithXXX");
 		},
 
-		async Eplayfab_Event31_Act1(runtime, localVars)
+		async Fnsplayfab_Event31_Act1(runtime, localVars)
 		{
 			await PlayFab_AddUsernamePassword(localVars.paramEmail, localVars.paramPassword, localVars.paramUsername);
 		},
 
-		async Eplayfab_Event33_Act1(runtime, localVars)
+		async Fnsplayfab_Event33_Act1(runtime, localVars)
 		{
 			await PlayFab_LoginWithCustomID(runtime.globalVars.kPlayFabTitleID, localVars.paramPlayFabID,true);
 		},
 
-		async Eplayfab_Event34_Act1(runtime, localVars)
+		async Fnsplayfab_Event34_Act1(runtime, localVars)
 		{
 			await PlayFab_LoginWithEmail(runtime.globalVars.kPlayFabTitleID, localVars.paramEmail, localVars.paramPassword);
 		},
 
-		async Eplayfab_Event35_Act1(runtime, localVars)
+		async Fnsplayfab_Event35_Act1(runtime, localVars)
 		{
 			await PlayFab_LoginWithPlayFab(runtime.globalVars.kPlayFabTitleID, localVars.paramUsername, localVars.paramPassword);
 		},
 
-		async Eplayfab_Event36_Act1(runtime, localVars)
+		async Fnsplayfab_Event36_Act1(runtime, localVars)
 		{
 			PlayFab_ResetPlayFabID();
 		},
 
-		async Eplayfab_Event38_Act1(runtime, localVars)
+		async Fnsplayfab_Event38_Act1(runtime, localVars)
 		{
 			localVars.localData = PlayFab_Error("GetAccountInfo");
 		},
 
-		async Eplayfab_Event40_Act1(runtime, localVars)
+		async Fnsplayfab_Event40_Act1(runtime, localVars)
 		{
 			PlayFab_LogSDKDetails();
 		}

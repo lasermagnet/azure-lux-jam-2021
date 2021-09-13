@@ -487,6 +487,9 @@ export async function PlayFab_UpdatePlayerStatistics(key, value)
 		Statistics: [{StatisticName:key, Value:value}]
 		};
 
+	console.info("pfRequest:");
+	console.info(pfRequest);
+
 	const playfabPromise = (pfRequest) => 
 	{
   		return new Promise((resolve, reject) => 
