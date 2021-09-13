@@ -37,3 +37,8 @@ html, body, canvas {
 }
 
 
+@font-face {
+	font-family: 'pressstart2p-regular';
+	src: url('fonts/pressstart2p-regular.ttf') format('truetype');
+}
+
