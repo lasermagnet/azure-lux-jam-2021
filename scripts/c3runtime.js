@@ -4291,8 +4291,8 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Cnds.Else,
 		C3.Plugins.System.Exps.time,
 		C3.Plugins.Text.Acts.SetVisible,
-		C3.Plugins.System.Acts.SetLayerVisible,
 		C3.Plugins.System.Exps.roundtodp,
+		C3.Plugins.System.Acts.SetLayerVisible,
 		C3.Plugins.Text.Cnds.CompareInstanceVar,
 		C3.Plugins.Text.Acts.SetText,
 		C3.Plugins.Sprite.Acts.SetAnim,
@@ -4334,6 +4334,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.ScriptsInEvents.Fnsplayfab_Event38_Act1,
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.ScriptsInEvents.Fnsplayfab_Event40_Act1,
+		C3.Plugins.System.Exps.int,
 		C3.Plugins.Browser.Acts.Alert,
 		C3.Plugins.Text.Acts.Destroy,
 		C3.Behaviors.Physics.Acts.SetWorldGravity,
@@ -4352,7 +4353,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Cnds.LayerVisible,
 		C3.Plugins.Sprite.Cnds.PickInstVarHiLow,
 		C3.Plugins.Keyboard.Cnds.OnKey,
-		C3.Plugins.System.Acts.RestartLayout,
 		C3.Plugins.Browser.Cnds.IsFullscreen,
 		C3.Plugins.Browser.Acts.CancelFullScreen,
 		C3.Plugins.Browser.Acts.RequestFullScreen,
@@ -4686,13 +4686,13 @@ self.C3_ExpressionFuncs = [
 			return () => f0(v1.GetValue(), (v2.GetValue() + v3.GetValue()));
 		},
 		() => "HUD",
-		() => "Scoreboard",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const v1 = p._GetNode(1).GetVar();
 			const v2 = p._GetNode(2).GetVar();
 			return () => f0((v1.GetValue() - v2.GetValue()), 2);
 		},
+		() => "Scoreboard",
 		() => "finaltime",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
@@ -4734,10 +4734,7 @@ self.C3_ExpressionFuncs = [
 			const v1 = p._GetNode(1).GetVar();
 			return () => ((and("Submitting score ", v0.GetValue()) + " to leaderboard ") + v1.GetValue());
 		},
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => and("HighScore submitted: ", v0.GetValue());
-		},
+		() => "UpdatePlayerStatistics completed.",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			const v1 = p._GetNode(1).GetVar();
@@ -4758,6 +4755,11 @@ self.C3_ExpressionFuncs = [
 			return () => f0(f1());
 		},
 		() => "GroupLogin",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			return () => f0((v1.GetValue() * 100));
+		},
 		() => 10,
 		() => "AllTime10p",
 		() => "Daily10p",
